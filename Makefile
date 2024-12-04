@@ -13,8 +13,8 @@ ENABLE_VOX                    ?= 1
 ENABLE_ALARM                  ?= 0
 ENABLE_TX1750                 ?= 0
 ENABLE_PWRON_PASSWORD         ?= 0
-ENABLE_DTMF_CALLING           ?= 1
-ENABLE_FLASHLIGHT             ?= 1
+ENABLE_DTMF_CALLING           ?= 0
+ENABLE_FLASHLIGHT             ?= 0
 
 # ---- CUSTOM MODS ----
 ENABLE_BIG_FREQ               ?= 1
@@ -22,8 +22,8 @@ ENABLE_SMALL_BOLD             ?= 1
 ENABLE_CUSTOM_MENU_LAYOUT     ?= 1
 ENABLE_KEEP_MEM_NAME          ?= 1
 ENABLE_WIDE_RX                ?= 1
-ENABLE_TX_WHEN_AM             ?= 0
-ENABLE_F_CAL_MENU             ?= 0
+ENABLE_TX_WHEN_AM             ?= 1
+ENABLE_F_CAL_MENU             ?= 1
 ENABLE_CTCSS_TAIL_PHASE_SHIFT ?= 0
 ENABLE_BOOT_BEEPS             ?= 0
 ENABLE_SHOW_CHARGE_LEVEL      ?= 0
@@ -42,8 +42,8 @@ ENABLE_BLMIN_TMP_OFF          ?= 0
 ENABLE_SCAN_RANGES            ?= 1
 
 # ---- DEBUGGING ----
-ENABLE_AM_FIX_SHOW_DATA       ?= 0
-ENABLE_AGC_SHOW_DATA          ?= 0
+ENABLE_AM_FIX_SHOW_DATA       ?= 1
+ENABLE_AGC_SHOW_DATA          ?= 1
 ENABLE_UART_RW_BK_REGS        ?= 0
 
 # ---- COMPILER/LINKER OPTIONS ----
