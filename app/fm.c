@@ -573,6 +573,7 @@ void FM_Play(void)
 			gFM_Channels[gFM_ChannelPosition++] = gEeprom.FM_FrequencyPlaying;
 
 		if (gFM_ChannelPosition >= 20) {
+			gFM_ChannelPosition--;
 			FM_PlayAndUpdate();
 			GUI_SelectNextDisplay(DISPLAY_FM);
 			return;
