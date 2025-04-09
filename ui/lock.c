@@ -29,6 +29,8 @@
 #include "ui/inputbox.h"
 #include "ui/lock.h"
 
+bool gLockWasActive;
+
 static void Render(void)
 {
 	unsigned int i;
@@ -49,6 +51,8 @@ static void Render(void)
 
 void UI_DisplayLock(void)
 {
+	gLockWasActive = true;
+
 	KEY_Code_t  Key;
 	BEEP_Type_t Beep;
 

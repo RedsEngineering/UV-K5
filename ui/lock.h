@@ -19,6 +19,8 @@
 
 #ifdef ENABLE_PWRON_PASSWORD
 	void UI_DisplayLock(void);
+
+	extern bool gLockWasActive;
 #endif
 
 #endif
