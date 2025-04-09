@@ -41,6 +41,7 @@
 #include "settings.h"
 #include "ui/inputbox.h"
 #include "ui/ui.h"
+#include "ui/lock.h"
 #include <stdlib.h>
 
 void toggle_chan_scanlist(void)
@@ -284,6 +285,13 @@ static void MAIN_Key_DIGITS(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld)
 		gBeepToPlay = BEEP_1KHZ_60MS_OPTIONAL;  // beep when key is pressed
 		return;                                 // don't use the key till it's released
 	}
+
+	#ifdef ENABLE_PWRON_PASSWORD
+	if(gLockWasActive) {
+		gLockWasActive = false;
+		return;
+	}
+	#endif
 
 	if (!gWasFKeyPressed) { // F-key wasn't pressed
 		const uint8_t Vfo = gEeprom.TX_VFO;
