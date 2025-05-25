@@ -59,6 +59,10 @@ inline static void ACTION_1750() { ACTION_AlarmOr1750(true); };
 
 inline static void ACTION_ScanRestart() { ACTION_Scan(true); };
 
+#ifdef ENABLE_ACTION_SCAN_TOGGLE
+void ACTION_ChScanToggle(void);
+#endif
+
 void (*action_opt_table[])(void) = {
 	[ACTION_OPT_NONE] = &FUNCTION_NOP,
 	[ACTION_OPT_POWER] = &ACTION_Power,
@@ -109,6 +113,10 @@ void (*action_opt_table[])(void) = {
 	[ACTION_OPT_SPECTRUM] = &APP_RunSpectrum,
 #else
 	[ACTION_OPT_SPECTRUM] = &FUNCTION_NOP,
+#endif
+
+#ifdef ENABLE_ACTION_SCAN_TOGGLE
+	[ACTION_OPT_SCAN_TOGGLE] = &ACTION_ChScanToggle,
 #endif
 };
 
@@ -449,5 +457,18 @@ void ACTION_BlminTmpOff(void)
 	} else {
 		BACKLIGHT_SetBrightness(0);
 	}
+}
+#endif
+
+#ifdef ENABLE_ACTION_SCAN_TOGGLE
+void ACTION_ChScanToggle(void)
+{
+	uint8_t select = (gTxVfo->SCANLIST1_PARTICIPATION ? 1 : 0) | (gTxVfo->SCANLIST2_PARTICIPATION ? 2 : 0);
+
+	select = (select + 1) % 4;
+
+	gTxVfo->SCANLIST1_PARTICIPATION = select & 1 ? 1 : 0;
+	gTxVfo->SCANLIST2_PARTICIPATION = select & 2 ? 1 : 0;
+	SETTINGS_UpdateChannel(gTxVfo->CHANNEL_SAVE, gTxVfo, true);
 }
 #endif

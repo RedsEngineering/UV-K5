@@ -363,7 +363,10 @@ const t_sidefunction gSubMenu_SIDEFUNCTIONS[] =
 	{"BLMIN\nTMP OFF",  ACTION_OPT_BLMIN_TMP_OFF}, 		//BackLight Minimum Temporay OFF
 #endif
 #ifdef ENABLE_SPECTRUM
-	{"SPECTRUM",         ACTION_OPT_SPECTRUM}
+	{"SPECTRUM",         ACTION_OPT_SPECTRUM},
+#endif
+#ifdef ENABLE_ACTION_SCAN_TOGGLE
+	{"SCAN\nTOGGLE",   ACTION_OPT_SCAN_TOGGLE},
 #endif
 };
 

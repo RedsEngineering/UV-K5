@@ -52,6 +52,8 @@ ENABLE_SWD                    ?= 0
 ENABLE_OVERLAY                ?= 0
 ENABLE_LTO                    ?= 1
 
+ENABLE_ACTION_SCAN_TOGGLE     ?= 1
+
 #############################################################
 
 TARGET = firmware
@@ -376,6 +378,9 @@ ifeq ($(ENABLE_UART_RW_BK_REGS),1)
 endif
 ifeq ($(ENABLE_CUSTOM_MENU_LAYOUT),1)
 	CFLAGS  += -DENABLE_CUSTOM_MENU_LAYOUT
+endif
+ifeq ($(ENABLE_ACTION_SCAN_TOGGLE),1)
+	CFLAGS += -DENABLE_ACTION_SCAN_TOGGLE
 endif
 
 LDFLAGS =
