@@ -1,5 +1,5 @@
 
-# compile options (see README.md for descriptions)-
+# compile options (see README.md for descriptions)
 # 0 = disable
 # 1 = enable
 
